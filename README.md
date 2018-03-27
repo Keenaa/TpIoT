@@ -1,3 +1,5 @@
+{::nomarkdown}
+
 <!DOCTYPE html>
 <html>
 
@@ -63,3 +65,6 @@ installer mosquitto qui fera office de broker mqtt</li>
 </body>
 
 </html>
+
+
+{:/}
