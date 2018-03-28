@@ -59,6 +59,8 @@ require_once("header.php");
     ?>
 
 </main>
+<script src="jquery-3.3.1.min.js"></script>
 
-<?php
-require_once("footer.php");
+<script src="https://code.highcharts.com/highcharts.js"></script>
+</body>
+</html>
