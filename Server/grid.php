@@ -31,9 +31,6 @@ require_once("header.php");
         },
         xAxis: {
             type: 'datetime',
-            dateTimeLabelFormats: {
-                day: '%e of %b'
-            }
         },
         yAxis: {
             minPadding: 0.2,
@@ -44,9 +41,8 @@ require_once("header.php");
             }
         },
         tooltip: {
-            formatter: function() {
-                return '<b>'+ this.series.name +'</b><br/>'+
-                    Highcharts.dateFormat('%e. %b', this.x) +': '+ this.y;
+            dateTimeLabelFormats: {
+                day:"%B %e, %Y, %H:%M:%S",
             }
         },
         series: [{
@@ -65,6 +61,18 @@ require_once("header.php");
                 for(let i = 0; i<point.length; i++){
                     console.log(point[i]['time'])
                     var date = point[i]['time'];
+                    let year = date.substring(0,4);
+                    console.log("YEAR " +  year);
+                    let month = date.substring(6,7);
+                    console.log("MONTH " +  month);
+                    let day = date.substring(9,11);
+                    console.log("DAY " +  day);
+                    let hour = date.substring(13,15);
+                    console.log("HOUR " + hour );
+                    let minute = date.substring(17,19);
+                    console.log("MINUTE " + minute);
+                    date = Date.UTC(year, month, day, hour, minute);
+                    console.log(date);
 
                     var value = parseInt(point[i]["value"]);
                     var data = [date,value];
@@ -74,7 +82,9 @@ require_once("header.php");
 
                 options.series[0].data = datas;
                 var chart = new Highcharts.Chart(options);
+
                 console.log(point);
+                //setTimeout(requestData, 1000);
             },
             cache: false
         });

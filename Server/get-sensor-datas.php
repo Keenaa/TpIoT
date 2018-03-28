@@ -14,7 +14,7 @@ $result->setFetchMode(PDO::FETCH_OBJ);
 $datas = [];
 
 while ($data =  $result->fetch()){
-    $date = date('Y, n, j', strtotime($data->time));
+    $date = date('Y, n, j, h, i', strtotime($data->time));
     $data->time = $date;
     array_push($datas, $data);
 }
